@@ -49,12 +49,27 @@ if __name__ == "__main__":
   WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div[1]/div[2]/div[5]/div[4]/div/div/div[4]/div/button")))
   while True:
     try:
-        loadMoreButton = driver.find_element_by_xpath("//button[contains(@aria-label,'Load more')]")
-        time.sleep(2)
-        loadMoreButton.click()
-        time.sleep(5)
+      loadMoreButton = driver.find_element(By.XPATH,"/html/body/div[1]/div[2]/div[5]/div[4]/div/div/div[4]/div/button")
+      time.sleep(2)
+      loadMoreButton.click()
+      time.sleep(5)
     except Exception as e:
-        print(e)
-        break
-print("Complete")
-time.sleep(10)
+      print (e)
+      break
+      print ("Complete")
+      time.sleep(10)
+  # r= driver.page_source
+  # soup = BeautifulSoup(r,'html.parser')
+  # data = json.loads(soup.find('script', id='__NEXT_DATA__').text)
+  # restaurant_list = data['props']['initialReduxState']['pageRestaurantsV2']['entities']['restaurantList']
+  # position_data=[]
+  # for restaurant in restaurant_list:
+  #   restaurant_data = restaurant_list[restaurant]
+  #   latitude  = restaurant_data['latitude']
+  #   longitude = restaurant_data['longitude']
+  #   geo_data = {
+  #     'latitude': latitude,
+  #     'longitude': longitude
+  #   }
+  #   position_data.append(geo_data)
+  # print(position_data)
