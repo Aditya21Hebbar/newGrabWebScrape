@@ -46,18 +46,21 @@ def get_locs(driver):
 if __name__ == "__main__":
   driver = get_driver()
   driver.get(url)
-  WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div[1]/div[2]/div[5]/div[4]/div/div/div[4]/div/button")))
-  while True:
-    try:
-      loadMoreButton = driver.find_element(By.XPATH,"/html/body/div[1]/div[2]/div[5]/div[4]/div/div/div[4]/div/button")
-      time.sleep(2)
-      loadMoreButton.click()
-      time.sleep(5)
-    except Exception as e:
-      print (e)
-      break
-      print ("Complete")
-      time.sleep(10)
+  # WebDriverWait(driver, 20).until(EC.visibility_of_element_located((By.XPATH, "/html/body/div[1]/div[2]/div[5]/div[4]/div/div/div[4]/div/button")))
+  # while True:
+  #   try:
+  #     loadMoreButton = driver.find_element(By.XPATH,"/html/body/div[1]/div[2]/div[5]/div[4]/div/div/div[4]/div/button")
+  #     time.sleep(2)
+  #     loadMoreButton.click()
+      
+  #     time.sleep(5)
+  #   except Exception as e:
+  #     print (e)
+  #     break
+  #     print ("Complete")
+  #     time.sleep(10)
+  response = requests.get(url,headers = headers).json()
+  
   # r= driver.page_source
   # soup = BeautifulSoup(r,'html.parser')
   # data = json.loads(soup.find('script', id='__NEXT_DATA__').text)
